@@ -1,160 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+    /* Background Variables */
+    --background-image: url("https://cdn.dribbble.com/users/234525/screenshots/5853076/eggsacrosstheuniverse.jpg"); /* Background Image */
+    --backdrop-filter: blur(10px) brightness(110%); /* Nav Backdrop filter */
+    --background-nav: rgba(255, 255, 255, 0.2); /* Nav Background */
+    --background-color: white; /* Main Background Color */
+    --background-input: #4545459e; /* Input Field Background Color */
+    --background-column: #353535; /* Background for Apps Container */
+    --background-settings: #2a2a2a; /* Settings Card Background */
+    --background-buttons: #333; /* Button Background Color */
+    --tab-active-background: #444; /* Accent Color for Tabs */
+    --tab-inactive-background: ; /* Background Color for Tabs Not In Use */
+    --slider-active-background: #4caf50; /* Active Slider Background Color */
+    --slider-inactive-background: #ccc; /* Slider Background Color */
+    --nav-image: url("/./assets/media/favicon/main.png"); /* Nav Logo */
+    /* Text Variables */
+    --text-primary: #fff; /* Primary Text Color */
+    --text-dark: #555; /* Dark Text Color for Error Page, Scrollbar, and Particles */
+    --text-placeholder: #aaa; /* Placeholder Text Color */
+    /* Other Variables */
+    --save-button: #4caf50; /* Save Button, Typically Green */
+    --reset-button: #f44336; /* Reset Button, Typically Red */
+    --import-button: #009688; /* Import Button, Typically Teal */
+    --export-button: #ea76cb; /* Export Button, Typically Pink */
+}
+
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-image: linear-gradient(to bottom, rgb(56, 67, 73), rgb(47, 80, 99));
+    font-family: "Futura", Futura, serif;
+    background: var(--background-image) no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
+.time-date {
+    font-family: "Futura", Futura, serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease;
 }
 
-.search-box {
-  text-align: center;
-  height: calc(100vh - 80px);
-  margin: 0;
+.time-date:hover {
+    transform: scale(1.1);
 }
 
-#uv-address {
-  text-align: center;
-  width: 35vw;
-  height: 60px;
-  font-size: 24px;
-  border: none;
-  background-color: rgb(29, 30, 34);
-  color: rgb(255, 255, 255);
-  border-radius: 24px;
-  transition: border-radius 0.5s;
+.search-container {
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
 }
 
-#uv-address:focus {
-  border-radius: 4px;
+.search-bar {
+    font-family: "Futura", Futura, serif;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.title {
-  font-family: "Freeman", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 75px;
-  margin: 0;
+.search-bar::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.subtitle {
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  margin: 0;
-  margin-bottom: 15px;
-  font-size: 25px;
+.search-bar:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes show-proxy-div {
-  from {
-    bottom: -100vh;
-    top: 100vh;
-  }
-  to {
-    bottom: 0;
-    top: 0;
-  }
+.bookmarks {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-@keyframes hide-proxy-div {
-  from {
-    bottom: 0;
-    top: 0;
-    display: block;
-  }
-  to {
-    bottom: -100vh;
-    top: 100vh;
-    display: block;
-  }
+.bookmark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    text-decoration: none;
+    color: white;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
-#proxy-div {
-  transition: background-color 0.5s;
+.bookmark img {
+    width: 40px;
+    align-items: center;
+    margin: auto;
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
-.hide-proxy-div {
-  display: none;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(0, 0, 0);
-  animation-name: hide-proxy-div;
-  animation-duration: 0.5s;
-  z-index: 10;
+.bookmark span {
+    max-width: 100%;
+    margin: auto;
+    align-items: center;
+    height: auto;
+    font-size: 0.8rem;
+    margin-top: 5px;
 }
 
-.show-proxy-div {
-  display: block;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-color: white;
-  animation-name: show-proxy-div;
-  animation-duration: 0.5s;
-  z-index: 10;
+.bookmark:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-.tab {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: calc(100vh - 40px);
-  border: none;
-  background-color: inherit;
-  display: none;
+.bookmark img:hover {
+    transform: rotate(10deg) scale(1.2);
 }
 
-#proxy-nav-bar {
-  height: 45px;
-  background-color: rgb(49, 50, 64);
-  color: white;
+.add-bookmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.tabBarTab {
-  background-color: rgb(49, 50, 64);
-  margin-top: 45px;
-  margin-left: 5px;
-  height: 45px;
-  border-radius: 8px;
-  float: left; 
-  padding: 8px;
-  transition-property: margin-top, background-color;
-  transition-duration: 0.25s;
+.add-bookmark:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
 
-#newTab {
-  background-color: rgb(49, 50, 64);
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 10px;
-  height: 35px;
-  width: 35px;
-  border-radius: 8px;
-  float: left; 
-  padding: 0px;
-  cursor: pointer;
+.add-bookmark-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    color: white;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-#tabBarTabs {
-  margin: 0;
-  padding: 0;
+.add-bookmark-modal input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
 }
+
+.add-bookmark-modal button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #5192f5;
+    colo
